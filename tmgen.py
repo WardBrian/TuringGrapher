@@ -17,6 +17,8 @@ def make_state_dict(filename):
             direction = seq[4]
             if newsym == 'B':
                 newsym = "&#9633;"
+            if newsym == sym:
+                newsym = ''
             k = (state, newstate)
             if k in d:
                 cur = tuple(d[k])
@@ -50,10 +52,7 @@ def generate_graph(filename):
         sym = str(val[0])
         newsym = str(val[1])
         direction = val[2]
-        comma = ', '
-        if newsym == sym:
-            newsym = ''
-            comma = ''
+        comma = ', ' if newsym else ''
         f.write('\t' + state + ' -> ' + newstate + " [label = < " + sym +
                 " &#8594; " +  # rightarrow character
                 newsym + comma + direction + ">]; \n")
