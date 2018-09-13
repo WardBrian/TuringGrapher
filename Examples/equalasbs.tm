@@ -1,5 +1,6 @@
 # Specification of a Turing machine that checks
 # if its input has same number of a's and b's
+# Made by Howard Straubing
 0 c 0 c R
 0 B -1 B R
 0 a 2 c R
